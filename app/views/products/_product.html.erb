@@ -1,0 +1,8 @@
+<%= content_tag_for(:div, product, class: last ? "last" : 0) do %>
+  <h2>
+    <%= product.name %>
+  </h2>
+  <p>
+    <%= product.description.truncate(100) %>
+  </p>
+<% end %>

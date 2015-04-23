@@ -1,11 +1,18 @@
-<h1>Shop</h1>
+<div class="container">
+  <h1>Shop</h1>
 
-<% @products.each_with_index do |product, index| %>
-  <%= content_tag_for(:div, product, class: index % 4 == 0 ? "last" : nil) do %>
-    <span>
-      <%= product.name %>
-    </span>
+  <%= form_tag(search_results_path, method: :get) do %>
+    <%= text_field_tag "search" %>
+    <%= submit_tag "Search" %>
   <% end %>
-<% end %>
+</div>
 
-<%= paginate(@products) %>
+<div class="container">
+  <% @products.each_with_index do |product, index| %>
+    <%= render product, last: (index + 1) % 4 == 0 %>
+  <% end %>
+</div>
+
+<div class="container">
+  <%= paginate(@products) %>
+</div>

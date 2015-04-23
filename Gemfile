@@ -25,6 +25,7 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 gem "kaminari"
+gem "pg_search"
 
 group :development do
   gem "spring"
