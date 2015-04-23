@@ -1,0 +1,11 @@
+<h1>Shop</h1>
+
+<% @products.each_with_index do |product, index| %>
+  <%= content_tag_for(:div, product, class: index % 4 == 0 ? "last" : nil) do %>
+    <span>
+      <%= product.name %>
+    </span>
+  <% end %>
+<% end %>
+
+<%= paginate(@products) %>
